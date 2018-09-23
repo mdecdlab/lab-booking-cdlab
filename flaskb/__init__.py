@@ -1,6 +1,8 @@
 import os
 
-from flask import Flask
+from flask import (
+    Flask, session, flash, redirect
+)
 # 導入 db.py
 from . import db
 # 導入 auth.py
@@ -37,7 +39,21 @@ def create_app(test_config=None):
 
     # a simple page that says hello
     @app.route('/')
-    def hello():
-        return '開始寫 lab-booking 程式!'
+    def index():
+        login_email = session.get('login_email')
+        if login_email:
+            output = login_email + ' 已經登入, 可以開始寫 lab-booking 程式!<br /><br /><a href="/logout">logout</a>'
+        else:
+            output = '開始寫 lab-booking 程式!<br /><br /><a href="/auth/autho_login/google">login</a>'
+        return output
+
+
+    @app.route('/logout')
+    def logout():
+        session.pop('login_email' , None)
+        # 設法讓所有 session 失效?
+        #app.secret_key = os.urandom(32)
+        flash('已經登出!')
+        return redirect('/')
 
     return app

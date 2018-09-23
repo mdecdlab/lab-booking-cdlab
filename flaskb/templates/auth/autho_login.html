@@ -1,0 +1,25 @@
+{# autho_login.html #}
+{% extends "autho_base.html" %}
+
+{% block body %}
+
+    <a href="/auth/autho_index">Home</a>
+    <!-- 完成 GMail 登入程序後, 將會自動登出 GMail 帳號, 然後跳轉到 callbackurl  -->
+    <script type="text/javascript">
+window.location="https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue={{ CALLBACK_URL }}";
+    </script>
+    
+    {# Check for errors. #}
+    {% if result.error %}
+        <h2>Damn that error: {{ result.error.message }}</h2>
+    {% endif %}
+
+    {# Welcome the user. #}
+    {% if result.user %}
+        <h1>{{ result.user.name}} 已經登入系統!</h1>
+        <!-- <h2>Your id is: {{ result.user.id }}</h2> -->
+        <h2>登入 email  為: {{ result.user.email }}</h2>
+    {% endif %}
+
+
+{% endblock body %}
