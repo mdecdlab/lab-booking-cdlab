@@ -1,0 +1,10 @@
+# Byte-compiled
+*.pyc
+__pycache__/
+instance/
+*.o
+*.obj
+*.exe
+
+
+
