@@ -1,0 +1,12 @@
+{# cal_list.html #}
+{% extends "cal_base.html" %}
+{% block body %}
+
+    <!--Links to the login handler-->
+    This is cal list function!<br /><br />
+    {# 利用 safe 送出 output 變數的 html 原始碼 #}
+    {{ output | safe }} <br /><br />
+    <!-- 在其他 blueprint template 中的連結, 使用絕對目錄 -->
+    Login with <a href="/auth/autho_login/google">google</a>.<br />
+
+{% endblock %}

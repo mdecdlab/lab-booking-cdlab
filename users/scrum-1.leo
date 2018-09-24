@@ -32,11 +32,15 @@
 <v t="leo.20180923121709.1" a="E"><vh>@path templates</vh>
 <v t="leo.20180923122627.1"><vh>@edit base.html</vh></v>
 <v t="leo.20180923151432.1"><vh>@edit autho_base.html</vh></v>
+<v t="leo.20180924081917.1"><vh>@edit cal_base.html</vh></v>
 <v t="leo.20180923121907.1" a="E"><vh>@path auth</vh>
 <v t="leo.20180923121920.1"><vh>@edit register.html</vh></v>
 <v t="leo.20180923122440.1"><vh>@edit login.html</vh></v>
 <v t="leo.20180923145402.1"><vh>@edit autho_index.html</vh></v>
 <v t="leo.20180923145412.1"><vh>@edit autho_login.html</vh></v>
+</v>
+<v t="leo.20180924081752.1" a="E"><vh>@path cal</vh>
+<v t="leo.20180924081810.1"><vh>@edit cal_list.html</vh></v>
 </v>
 </v>
 </v>
@@ -47,6 +51,8 @@
 <v t="leo.20180923114836.1"><vh>@edit db.py</vh></v>
 <v t="leo.20180923114932.1"><vh>@edit schema.sql</vh></v>
 <v t="leo.20180923121323.1"><vh>@edit auth.py</vh></v>
+<v t="leo.20180924081458.1"><vh>@edit cal.py</vh></v>
+<v t="leo.20180924082945.1"><vh>@edit cal_endar.py</vh></v>
 </v>
 </v>
 </vnodes>
@@ -200,5 +206,6 @@ CONFIG = {
     }
     
 ###############################################</t>
+<t tx="leo.20180924081752.1"></t>
 </tnodes>
 </leo_file>

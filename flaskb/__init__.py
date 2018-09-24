@@ -7,6 +7,8 @@ from flask import (
 from . import db
 # 導入 auth.py
 from . import auth
+# 導入 cal.py
+from . import cal
 
 
 def create_app(test_config=None):
@@ -23,6 +25,8 @@ def create_app(test_config=None):
     db.init_app(app)
     # 註冊 auth.py 中的 bp
     app.register_blueprint(auth.bp)
+    # 註冊 cal.py 中的 bp
+    app.register_blueprint(cal.bp)
 
     if test_config is None:
         # load the instance config, if it exists, when not testing
@@ -45,6 +49,8 @@ def create_app(test_config=None):
             output = login_email + ' 已經登入, 可以開始寫 lab-booking 程式!<br /><br /><a href="/logout">logout</a>'
         else:
             output = '開始寫 lab-booking 程式!<br /><br /><a href="/auth/autho_login/google">login</a>'
+        output += "<br /><br /><a href='/cal/list'>cal_list</a>"
+        output += "<br /><br /><a href='/cal/list?month=10&year=2018'>cal_list (Oct. 2018)</a>"
         return output
 
 
