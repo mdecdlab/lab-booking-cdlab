@@ -4,63 +4,63 @@ xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitem
 xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
-<loc>https://mdecdlab.github.io/lab-booking-cdlab/blog/</loc>
-<lastmod>2018-09-24T14:06:43-00:00</lastmod>
+<loc>https://mdecdlab.github.io/lab-booking-cdlab/doc/blog/</loc>
+<lastmod>2018-09-24T14:15:17-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://mdecdlab.github.io/lab-booking-cdlab/blog/archives.html</loc>
-<lastmod>2018-09-24T14:06:43-00:00</lastmod>
+<loc>https://mdecdlab.github.io/lab-booking-cdlab/doc/blog/archives.html</loc>
+<lastmod>2018-09-24T14:15:17-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://mdecdlab.github.io/lab-booking-cdlab/blog/tags.html</loc>
-<lastmod>2018-09-24T14:06:43-00:00</lastmod>
+<loc>https://mdecdlab.github.io/lab-booking-cdlab/doc/blog/tags.html</loc>
+<lastmod>2018-09-24T14:15:17-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://mdecdlab.github.io/lab-booking-cdlab/blog/categories.html</loc>
-<lastmod>2018-09-24T14:06:43-00:00</lastmod>
+<loc>https://mdecdlab.github.io/lab-booking-cdlab/doc/blog/categories.html</loc>
+<lastmod>2018-09-24T14:15:17-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://mdecdlab.github.io/lab-booking-cdlab/blog/pages/about/</loc>
+<loc>https://mdecdlab.github.io/lab-booking-cdlab/doc/blog/pages/about/</loc>
 <lastmod>2018-09-24T14:03:20+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://mdecdlab.github.io/lab-booking-cdlab/blog/2018-Fall-Python-Getting-Started.html</loc>
+<loc>https://mdecdlab.github.io/lab-booking-cdlab/doc/blog/2018-Fall-Python-Getting-Started.html</loc>
 <lastmod>2018-09-11T11:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://mdecdlab.github.io/lab-booking-cdlab/blog/category/python.html</loc>
+<loc>https://mdecdlab.github.io/lab-booking-cdlab/doc/blog/category/python.html</loc>
 <lastmod>2018-09-11T11:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://mdecdlab.github.io/lab-booking-cdlab/blog/tag/2018fallcp.html</loc>
+<loc>https://mdecdlab.github.io/lab-booking-cdlab/doc/blog/tag/2018fallcp.html</loc>
 <lastmod>2018-09-11T11:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://mdecdlab.github.io/lab-booking-cdlab/blog/author/yen.html</loc>
+<loc>https://mdecdlab.github.io/lab-booking-cdlab/doc/blog/author/yen.html</loc>
 <lastmod>2018-09-11T11:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
