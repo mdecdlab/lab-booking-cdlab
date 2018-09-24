@@ -20,12 +20,17 @@
 <v t="leo.20180923150443.1"><vh>安裝模組</vh></v>
 <v t="leo.20180923151741.1"><vh>config</vh></v>
 <v t="leo.20180923111821.1" a="E"><vh>@path ./../</vh>
+<v t="leo.20180924131955.1" a="E"><vh>@path doc</vh>
+<v t="leo.20180924132006.1"><vh>@edit wsgi.py</vh></v>
+<v t="leo.20180924132028.1"><vh>@edit https-server.py</vh></v>
+</v>
 <v t="leo.20180923111740.1" a="E"><vh>編輯 .gitignore</vh>
 <v t="leo.20180923111806.1"><vh>@edit .gitignore</vh></v>
 <v t="leo.20180923215522.1"><vh>@edit README.md</vh></v>
 <v t="leo.20180923124600.1"><vh>@edit MANIFEST.in</vh></v>
 <v t="leo.20180923151659.1"><vh>@edit config.py</vh></v>
 <v t="leo.20180923114101.1"><vh>@edit wsgi.py</vh></v>
+<v t="leo.20180924131905.1"><vh>@edit index.html</vh></v>
 </v>
 <v t="leo.20180923112617.1" a="E"><vh>@path flaskb</vh>
 <v t="leo.20180923121736.1" a="E"><vh>以下為 templates 目錄</vh>
@@ -207,5 +212,6 @@ CONFIG = {
     
 ###############################################</t>
 <t tx="leo.20180924081752.1"></t>
+<t tx="leo.20180924131955.1"></t>
 </tnodes>
 </leo_file>
