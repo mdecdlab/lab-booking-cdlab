@@ -244,7 +244,7 @@ import ssl
 
 # 即使在近端仍希望以 https 模式下執行
 context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
-context.load_cert_chain('localhost.crt', 'localhost.key')
+context.load_cert_chain('./../keys/localhost.crt', './../keys/localhost.key')
 
 # 取 flaskapp.py 中的 uwsgi 變數設定
 uwsgi = flaskapp.uwsgi
@@ -325,6 +325,7 @@ import cgi
 import sys
 # for new parse_content function
 from bs4 import BeautifulSoup
+
 
 # get the current directory of the file
 _curdir = os.path.join(os.getcwd(), os.path.dirname(__file__))
@@ -840,7 +841,7 @@ def set_admin_css():
     outstring = '''&lt;!doctype html&gt;
 &lt;html&gt;&lt;head&gt;
 &lt;meta http-equiv="content-type" content="text/html;charset=utf-8"&gt;
-&lt;title&gt;計算機程式教材&lt;/title&gt; \
+&lt;title&gt;''' + init.Init.html_title + '''&lt;/title&gt; \
 &lt;link rel="stylesheet" type="text/css" href="/static/cmsimply.css"&gt;
 ''' + syntaxhighlight()
 
@@ -1065,7 +1066,7 @@ a.xhfbfile:hover{
     outstring = '''&lt;!doctype html&gt;
 &lt;html&gt;&lt;head&gt;
 &lt;meta http-equiv="content-type" content="text/html;charset=utf-8"&gt;
-&lt;title&gt;計算機程式教材&lt;/title&gt; \
+&lt;title&gt;''' + init.Init.html_title + '''&lt;/title&gt; \
 &lt;link rel="stylesheet" type="text/css" href="/static/cmsimply.css"&gt;
 ''' + syntaxhighlight()
 
@@ -2404,7 +2405,7 @@ def get_page2(heading, head, edit):
     outstring = '''&lt;!doctype html&gt;
 &lt;html&gt;&lt;head&gt;
 &lt;meta http-equiv="content-type" content="text/html;charset=utf-8"&gt;
-&lt;title&gt;計算機程式教材&lt;/title&gt; \
+&lt;title&gt;''' + init.Init.html_title + '''&lt;/title&gt; \
 &lt;link rel="stylesheet" type="text/css" href="./../static/cmsimply.css"&gt;
 ''' + syntaxhighlight2()
 

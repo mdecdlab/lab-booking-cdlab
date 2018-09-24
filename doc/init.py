@@ -8,6 +8,8 @@ static_dir = _curdir + "/static"
 class Init(object):
     # uwsgi as static class variable, can be accessed by Init.uwsgi
     uwsgi = False
+    # 設定內容管理系統頁面標題
+    html_title = "Lab-Booking-CDLab 內容管理"
     def __init__(self):
         # hope to create downloads and images directories　
         if not os.path.isdir(_curdir + "/downloads"):
