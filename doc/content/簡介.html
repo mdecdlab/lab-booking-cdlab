@@ -71,4 +71,17 @@ $(function(){
 <p><a href="https://github.com/mdecdlab/lab-booking-cdlab">https://github.com/mdecdlab/lab-booking-cdlab</a>&nbsp; 是一個網際程式, 用於管理 Lab 借用流程.</p>
 <p>Lab-booking 專案希望採用 <a href="http://flask.pocoo.org/">Flask</a> 框架, 建立一個管理實驗室借用的網際系統.</p>
 <p>使用者登入希望採用 Google Gmail 帳號, 透過 <a href="https://oauth.net/2/">Oauth2</a> 規範實現.</p>
-<br /> <a href='參考專案.html'>Next</a> >> 參考專案</section></div></body></html>
+<h4>近端開發</h4>
+<p>各協同人員參與 Python 程式碼編修, 必須各自在 users 目錄中建立一個 .leo 檔案.</p>
+<p>在近端啟動網際程式, 進入倉儲後, 以</p>
+<p style="padding-left: 30px;">python wsgi.py&nbsp;</p>
+<p>啟動 booking 系統.</p>
+<p>CMSimfly 內容管理, reveal.js 簡報與 Pelican 網誌系統位於 doc 目錄中.</p>
+<p>進入 doc 目錄後, 啟動 CMSimfly:</p>
+<p style="padding-left: 30px;">python wsgi.py</p>
+<p>編輯 reveal 與 Pelican 網誌, 各協同人員, 必須各自在 doc/config/users 目錄建立各自的 用戶名_reveal.leo 與 用戶名_pelican.leo 檔案, 避免共用 .leo 檔案, 造成後續合併問題.</p>
+<h4>Reveal 簡報檔</h4>
+<p>由於 reveal.js 簡報檔案為 html 格式檔案, 因此若多人協同維護, 免不了必須合併標註檔案, 若能統一由一位組員維護, 則可避免合併問題.</p>
+<h4>Pelican 網誌</h4>
+<p>網誌中的設定檔案為 Python 程式, 而來源檔案為 Markdown 位於 doc/markdown 目錄中, 若多人維護的 Markdown 檔案解決衝突與合併問題後, 在推送前必須重新轉檔.</p>
+<p></p><br /> <a href='參考專案.html'>Next</a> >> 參考專案</section></div></body></html>

@@ -2,14 +2,20 @@
 <p><a href="https://github.com/mdecdlab/lab-booking-cdlab">https://github.com/mdecdlab/lab-booking-cdlab</a>&nbsp; 是一個網際程式, 用於管理 Lab 借用流程.</p>
 <p>Lab-booking 專案希望採用 <a href="http://flask.pocoo.org/">Flask</a> 框架, 建立一個管理實驗室借用的網際系統.</p>
 <p>使用者登入希望採用 Google Gmail 帳號, 透過 <a href="https://oauth.net/2/">Oauth2</a> 規範實現.</p>
-<h2>參考專案</h2>
-<p><a href="https://github.com/OneScreenfulOfPython/booking-system">https://github.com/OneScreenfulOfPython/booking-system</a>&nbsp;</p>
-<p><a href="https://github.com/chuangag/room-booking-app">https://github.com/chuangag/room-booking-app</a>&nbsp;</p>
-<p><a href="http://www.developerdrive.com/2015/06/how-to-build-a-simple-reservation-system/">http://www.developerdrive.com/2015/06/how-to-build-a-simple-reservation-system/</a>&nbsp;</p>
-<p><a href="https://codereview.stackexchange.com/questions/49786/doctor-patient-reservation-scheduling">https://codereview.stackexchange.com/questions/49786/doctor-patient-reservation-scheduling</a>&nbsp;</p>
-<p><a href="https://github.com/hieusydo/Airline-Reservation-System">https://github.com/hieusydo/Airline-Reservation-System</a>&nbsp;</p>
-<p>控制硬體</p>
-<p style="padding-left: 30px;"><a href="http://laris.univ-angers.fr/_resources/IFAC2017/IFAC_Paper_4212.pdf">http://laris.univ-angers.fr/_resources/IFAC2017/IFAC_Paper_4212.pdf</a>&nbsp;&nbsp;(<a href="/downloads/Design and Development of a Remote Lab for Hands-On Education in Mechatronics and Control Engineering.pdf">local pdf</a>)</p><h1>Flask</h1>
+<h4>近端開發</h4>
+<p>各協同人員參與 Python 程式碼編修, 必須各自在 users 目錄中建立一個 .leo 檔案.</p>
+<p>在近端啟動網際程式, 進入倉儲後, 以</p>
+<p style="padding-left: 30px;">python wsgi.py&nbsp;</p>
+<p>啟動 booking 系統.</p>
+<p>CMSimfly 內容管理, reveal.js 簡報與 Pelican 網誌系統位於 doc 目錄中.</p>
+<p>進入 doc 目錄後, 啟動 CMSimfly:</p>
+<p style="padding-left: 30px;">python wsgi.py</p>
+<p>編輯 reveal 與 Pelican 網誌, 各協同人員, 必須各自在 doc/config/users 目錄建立各自的 用戶名_reveal.leo 與 用戶名_pelican.leo 檔案, 避免共用 .leo 檔案, 造成後續合併問題.</p>
+<h4>Reveal 簡報檔</h4>
+<p>由於 reveal.js 簡報檔案為 html 格式檔案, 因此若多人協同維護, 免不了必須合併標註檔案, 若能統一由一位組員維護, 則可避免合併問題.</p>
+<h4>Pelican 網誌</h4>
+<p>網誌中的設定檔案為 Python 程式, 而來源檔案為 Markdown 位於 doc/markdown 目錄中, 若多人維護的 Markdown 檔案解決衝突與合併問題後, 在推送前必須重新轉檔.</p>
+<p></p><h2>參考專案</h2><p><a href="https://github.com/OneScreenfulOfPython/booking-system">https://github.com/OneScreenfulOfPython/booking-system</a>&nbsp;</p><p><a href="https://github.com/chuangag/room-booking-app">https://github.com/chuangag/room-booking-app</a>&nbsp;</p><p><a href="http://www.developerdrive.com/2015/06/how-to-build-a-simple-reservation-system/">http://www.developerdrive.com/2015/06/how-to-build-a-simple-reservation-system/</a>&nbsp;</p><p><a href="https://codereview.stackexchange.com/questions/49786/doctor-patient-reservation-scheduling">https://codereview.stackexchange.com/questions/49786/doctor-patient-reservation-scheduling</a>&nbsp;</p><p><a href="https://github.com/hieusydo/Airline-Reservation-System">https://github.com/hieusydo/Airline-Reservation-System</a>&nbsp;</p><p>控制硬體</p><p style="padding-left: 30px;"><a href="http://laris.univ-angers.fr/_resources/IFAC2017/IFAC_Paper_4212.pdf">http://laris.univ-angers.fr/_resources/IFAC2017/IFAC_Paper_4212.pdf</a>&nbsp;&nbsp;(<a href="/downloads/Design and Development of a Remote Lab for Hands-On Education in Mechatronics and Control Engineering.pdf">local pdf</a>)</p><p><img src="/images/uwsgi_flask_sys_archetecture.png.png" alt="" width="800" height="294"></p><h1>Flask</h1>
 <p><a href="http://flask.pocoo.org/">Flask</a> 是一套以 Python 編寫的網際程式框架.</p>
 <p>複習 Python:</p>
 <p style="padding-left: 30px;"><a href="http://opentechschool.github.io/python-beginners/en/index.html">http://opentechschool.github.io/python-beginners/en/index.html</a>&nbsp;</p>
@@ -32,4 +38,13 @@
 <p style="padding-left: 30px;"><a href="https://developers.google.com/api-client-library/python/apis/oauth2/v1">https://developers.google.com/api-client-library/python/apis/oauth2/v1</a>&nbsp;</p>
 <p style="padding-left: 30px;"><a href="https://developers.google.com/api-client-library/python/guide/aaa_oauth">https://developers.google.com/api-client-library/python/guide/aaa_oauth</a>&nbsp;</p><h1>Calendar</h1>
 <p><a href="https://github.com/Kartones/flask-calendar">https://github.com/Kartones/flask-calendar</a>&nbsp;</p>
-<p></p><h1>Database</h1><p>ORM</p><p style="padding-left: 30px;"><a href="https://github.com/coleifer/peewee">https://github.com/coleifer/peewee</a>&nbsp;</p><p>RDBMS</p><p style="padding-left: 30px;"><a href="https://www.sqlite.org">https://www.sqlite.org</a>&nbsp;</p><p style="padding-left: 30px;"><a href="https://www.mysql.com/">https://www.mysql.com/</a>&nbsp;</p><p style="padding-left: 30px;"><a href="https://www.postgresql.org/">https://www.postgresql.org/</a>&nbsp;</p><p>LDAP</p><p style="padding-left: 30px;"><a href="https://directory.apache.org/studio/">https://directory.apache.org/studio/</a>&nbsp;</p><p style="padding-left: 30px;"><a href="https://github.com/python-ldap/python-ldap">https://github.com/python-ldap/python-ldap</a>&nbsp;</p>
+<p></p><h1>Database</h1>
+<p>ORM</p>
+<p style="padding-left: 30px;"><a href="https://github.com/coleifer/peewee">https://github.com/coleifer/peewee</a>&nbsp;</p>
+<p>RDBMS</p>
+<p style="padding-left: 30px;"><a href="https://www.sqlite.org">https://www.sqlite.org</a>&nbsp;</p>
+<p style="padding-left: 30px;"><a href="https://www.mysql.com/">https://www.mysql.com/</a>&nbsp;</p>
+<p style="padding-left: 30px;"><a href="https://www.postgresql.org/">https://www.postgresql.org/</a>&nbsp;</p>
+<p>LDAP</p>
+<p style="padding-left: 30px;"><a href="https://directory.apache.org/studio/">https://directory.apache.org/studio/</a>&nbsp;</p>
+<p style="padding-left: 30px;"><a href="https://github.com/python-ldap/python-ldap">https://github.com/python-ldap/python-ldap</a>&nbsp;</p>
