@@ -49,6 +49,11 @@ init_mathjax();
 <script src="https://scrum-3.github.io/web/brython/brython.js"></script>
 <script src="https://scrum-3.github.io/web/brython/brython_stdlib.js"></script>
 -->
+<style>
+img {
+    border: 3px solid red;
+}
+</style>
 
 <script src="./../static/jquery.js"></script>
 <script type="text/javascript">
@@ -67,14 +72,14 @@ $(function(){
 
 </ul>
 </confmenu></header>
-<div class='container'><nav><ul id='css3menu1' class='topmenu'><li><a href='簡介.html'>簡介</a><ul><li><a href='參考專案.html'>參考專案</a></li></ul><li><a href='Flask.html'>Flask</a><li><a href='Oauth2.html'>Oauth2</a><li><a href='Calendar.html'>Calendar</a><li><a href='Database.html'>Database</a></li></ul></nav><section> <a href='參考專案.html'>Next</a> >> 參考專案<br /><h1>簡介</h1>
-<p><a href="https://github.com/mdecdlab/lab-booking-cdlab">https://github.com/mdecdlab/lab-booking-cdlab</a>&nbsp; 是一個網際程式, 用於管理 Lab 借用流程.</p>
+<div class='container'><nav><ul id='css3menu1' class='topmenu'><li><a href='簡介.html'>簡介</a><ul><li><a href='參考專案.html'>參考專案</a></li></ul><li><a href='GCalendar.html'>GCalendar</a><li><a href='Flask.html'>Flask</a><li><a href='Oauth2.html'>Oauth2</a><li><a href='Calendar.html'>Calendar</a><li><a href='Database.html'>Database</a></li></ul></nav><section> <a href='參考專案.html'>Next</a> >> 參考專案<br /><h1>簡介</h1>
+<p><a href="https://github.com/mdecdlab/lab-booking-cdlab">https://github.com/mdecdlab/lab-booking-cdlab</a>  是一個網際程式, 用於管理 Lab 借用流程.</p>
 <p>Lab-booking 專案希望採用 <a href="http://flask.pocoo.org/">Flask</a> 框架, 建立一個管理實驗室借用的網際系統.</p>
 <p>使用者登入希望採用 Google Gmail 帳號, 透過 <a href="https://oauth.net/2/">Oauth2</a> 規範實現.</p>
 <h4>近端開發</h4>
 <p>各協同人員參與 Python 程式碼編修, 必須各自在 users 目錄中建立一個 .leo 檔案.</p>
 <p>在近端啟動網際程式, 進入倉儲後, 以</p>
-<p style="padding-left: 30px;">python wsgi.py&nbsp;</p>
+<p style="padding-left: 30px;">python wsgi.py </p>
 <p>啟動 booking 系統.</p>
 <p>CMSimfly 內容管理, reveal.js 簡報與 Pelican 網誌系統位於 doc 目錄中.</p>
 <p>進入 doc 目錄後, 啟動 CMSimfly:</p>

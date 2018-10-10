@@ -72,21 +72,17 @@ $(function(){
 
 </ul>
 </confmenu></header>
-<div class='container'><nav><ul id='css3menu1' class='topmenu'><li><a href='簡介.html'>簡介</a><ul><li><a href='參考專案.html'>參考專案</a></li></ul><li><a href='GCalendar.html'>GCalendar</a><li><a href='Flask.html'>Flask</a><li><a href='Oauth2.html'>Oauth2</a><li><a href='Calendar.html'>Calendar</a><li><a href='Database.html'>Database</a></li></ul></nav><section> <a href='參考專案.html'>Next</a> >> 參考專案<br /><h1>簡介</h1>
-<p><a href="https://github.com/mdecdlab/lab-booking-cdlab">https://github.com/mdecdlab/lab-booking-cdlab</a>  是一個網際程式, 用於管理 Lab 借用流程.</p>
-<p>Lab-booking 專案希望採用 <a href="http://flask.pocoo.org/">Flask</a> 框架, 建立一個管理實驗室借用的網際系統.</p>
-<p>使用者登入希望採用 Google Gmail 帳號, 透過 <a href="https://oauth.net/2/">Oauth2</a> 規範實現.</p>
-<h4>近端開發</h4>
-<p>各協同人員參與 Python 程式碼編修, 必須各自在 users 目錄中建立一個 .leo 檔案.</p>
-<p>在近端啟動網際程式, 進入倉儲後, 以</p>
-<p style="padding-left: 30px;">python wsgi.py </p>
-<p>啟動 booking 系統.</p>
-<p>CMSimfly 內容管理, reveal.js 簡報與 Pelican 網誌系統位於 doc 目錄中.</p>
-<p>進入 doc 目錄後, 啟動 CMSimfly:</p>
-<p style="padding-left: 30px;">python wsgi.py</p>
-<p>編輯 reveal 與 Pelican 網誌, 各協同人員, 必須各自在 doc/config/users 目錄建立各自的 用戶名_reveal.leo 與 用戶名_pelican.leo 檔案, 避免共用 .leo 檔案, 造成後續合併問題.</p>
-<h4>Reveal 簡報檔</h4>
-<p>由於 reveal.js 簡報檔案為 html 格式檔案, 因此若多人協同維護, 免不了必須合併標註檔案, 若能統一由一位組員維護, 則可避免合併問題.</p>
-<h4>Pelican 網誌</h4>
-<p>網誌中的設定檔案為 Python 程式, 而來源檔案為 Markdown 位於 doc/markdown 目錄中, 若多人維護的 Markdown 檔案解決衝突與合併問題後, 在推送前必須重新轉檔.</p>
-<p></p><br /> <a href='參考專案.html'>Next</a> >> 參考專案</section></div></body></html>
+<div class='container'><nav><ul id='css3menu1' class='topmenu'><li><a href='簡介.html'>簡介</a><ul><li><a href='參考專案.html'>參考專案</a></li></ul><li><a href='GCalendar.html'>GCalendar</a><li><a href='Flask.html'>Flask</a><li><a href='Oauth2.html'>Oauth2</a><li><a href='Calendar.html'>Calendar</a><li><a href='Database.html'>Database</a></li></ul></nav><section>參考專案 << <a href='參考專案.html'>Previous</a> <a href='Flask.html'>Next</a> >> Flask<br /><h1>GCalendar</h1>
+<p>在利用 Python <a href="http://flask.pocoo.org/">Flask</a> 與 Google <a href="https://developers.google.com/calendar/">Calendar API</a> , 在 Google Calendar 上建立 Event 之前, 可以先透過 <a href="https://en.wikipedia.org/wiki/G_Suite">G Suite</a> 的內建功能, 管理機械設計工程系各實驗室預定排程.</p>
+<h4>利用 mde dot tw G Suite  建立實驗室行事曆</h4>
+<p>以電腦輔助設計室為例, 行事曆如下:</p>
+<p><iframe frameborder="0" height="600" scrolling="no" src="https://calendar.google.com/calendar/embed?src=mde.tw_35353639353033393233%40resource.calendar.google.com&amp;ctz=Asia%2FTaipei" style="border: 0;" width="800"></iframe></p>
+<p>當擁有檢視權限的用戶登入 Gmail 帳號後, 可以檢視電腦輔助設計室各時段的使用內容, 而負責實驗室預定使用管理者, 可以在既定上課時段之外, 接受使用者預定, 一旦申請使用流程通過後, 即可將預定使用資料登錄在申請使用的時段中.</p>
+<h4>建立共用場域資源</h4>
+<p><img alt="" height="363" src="./../images/Gsuite_resource_def.png" width="800"/></p>
+<p>為各共用場域建立行事曆:</p>
+<p><img alt="" height="334" src="./../images/calendar_for_lab_resource.png" width="577"/></p>
+<p>實驗室行事曆的設定與分享:</p>
+<p><img alt="" height="447" src="./../images/calendar_settings_sharing.png" width="503"/></p>
+<p>與特定行事曆管理人分享設定權, 各管理人包括實驗室管理老師與協助的助教, 可以在登入設定的 Gmail 帳號後, 擁有檢視各實驗室上課與已登錄借用時段, 並可在空檔時段輸入其他使用預借登記.</p>
+<p><img alt="" height="203" src="./../images/share_with_specific_people.png" width="600"/></p><br />參考專案 << <a href='參考專案.html'>Previous</a> <a href='Flask.html'>Next</a> >> Flask</section></div></body></html>

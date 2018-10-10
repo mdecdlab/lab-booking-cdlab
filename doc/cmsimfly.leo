@@ -105,6 +105,7 @@
 <v t="amd.20160714232921.1"><vh>login</vh></v>
 <v t="amd.20160715154321.1"><vh>logout</vh></v>
 <v t="amd.20160714231619.1"><vh>parse_config</vh></v>
+<v t="leo.20181010214748.1"><vh>_remove_h123_attrs</vh></v>
 <v t="leo.20180801042733.1"><vh>parse_content</vh></v>
 <v t="amd.20160714231359.1"><vh>render_menu</vh></v>
 <v t="leo.20180630203542.1"><vh>render_menu2</vh></v>
@@ -324,7 +325,7 @@ import urllib.parse
 import cgi
 import sys
 # for new parse_content function
-from bs4 import BeautifulSoup
+import bs4
 
 
 # get the current directory of the file
@@ -955,6 +956,11 @@ window.location= 'https://' + location.host + location.pathname + location.searc
 &lt;script src="https://scrum-3.github.io/web/brython/brython.js"&gt;&lt;/script&gt;
 &lt;script src="https://scrum-3.github.io/web/brython/brython_stdlib.js"&gt;&lt;/script&gt;
 --&gt;
+&lt;style&gt;
+img {
+    border: 3px solid red;
+}
+&lt;/style&gt;
 '''
 
 
@@ -2496,6 +2502,11 @@ init_mathjax();
 &lt;script src="https://scrum-3.github.io/web/brython/brython.js"&gt;&lt;/script&gt;
 &lt;script src="https://scrum-3.github.io/web/brython/brython_stdlib.js"&gt;&lt;/script&gt;
 --&gt;
+&lt;style&gt;
+img {
+    border: 3px solid red;
+}
+&lt;/style&gt;
 '''
 
 
@@ -2711,12 +2722,12 @@ bug 180726</t>
         library.commit()
     '''
     # if no content.htm, generate a head 1 and content 1 file
-    if not os.path.isfile(config_dir + "content.htm"):
+    if not os.path.isfile(config_dir+"content.htm"):
         # create content.htm if there is no content.htm
         File = open(config_dir + "content.htm", "w", encoding="utf-8")
         File.write("&lt;h1&gt;head 1&lt;/h1&gt;content 1")
         File.close()
-    subject = file_get_contents(config_dir + "content.htm")
+    subject = file_get_contents(config_dir+"content.htm")
     # deal with content without content
     if subject == "":
         # create content.htm if there is no content.htm
@@ -2729,16 +2740,18 @@ bug 180726</t>
     level_list = []
     page_list = []
     # make the soup out of the html content
-    soup = BeautifulSoup(subject, 'html.parser')
+    soup = bs4.BeautifulSoup(subject, 'html.parser')
+    # 嘗試解讀各種情況下的標題
+    soup = _remove_h123_attrs(soup)
+    # 改寫 content.htm 後重新取 subject
+    with open(config_dir + "content.htm", "wb") as f:
+        f.write(soup.encode("utf-8"))
+    subject = file_get_contents(config_dir+"content.htm")
     # get all h1, h2, h3 tags into list
     htag= soup.find_all(['h1', 'h2', 'h3'])
     n = len(htag)
-    # get all h tags
-    # g.es(soup.find_all(re.compile(r"^h\d$")))
     # get the page content to split subject using each h tag
-    # i = 0
     temp_data = subject.split(str(htag[0]))
-    # 若有重複標題頁面, 則切割後, 必須將序號 1 之後的資料進行接合
     if len(temp_data) &gt; 2:
         subject = str(htag[0]).join(temp_data[1:])
     else:
@@ -2746,13 +2759,11 @@ bug 180726</t>
     if n &gt;1:
             # i from 1 to i-1
             for i in range(1, len(htag)):
-                # add the first page title
                 head_list.append(htag[i-1].text.strip())
                 # use name attribute of h* tag to get h1, h2 or h3
                 # the number of h1, h2 or h3 is the level of page menu
                 level_list.append(htag[i-1].name[1])
                 temp_data = subject.split(str(htag[i]))
-                # 若有重複標題頁面, 則切割後, 必須將序號 1 之後的資料進行接合
                 if len(temp_data) &gt; 2:
                     subject = str(htag[i]).join(temp_data[1:])
                 else:
@@ -2774,7 +2785,6 @@ bug 180726</t>
     # the last page content
     page_list.append(cut)
     return head_list, level_list, page_list
-
 
 </t>
 <t tx="leo.20180801114529.1"></t>
@@ -2841,5 +2851,50 @@ def parse_content_old():
     return head_list, level_list, page_list
 </t>
 <t tx="leo.20180915084539.1">納入 Reveal.js 與 Pelican Blog</t>
+<t tx="leo.20181010214748.1">def _remove_h123_attrs(soup):
+    tag_order = 0
+    for tag in soup.find_all(['h1', 'h2', 'h3']):
+        # 假如標註內容沒有字串
+        #if len(tag.text) == 0:
+        if len(tag.contents) ==0:
+            # 且該標註為排序第一
+            if tag_order == 0:
+                tag.string = "First"
+            else:
+                # 若該標註非排序第一, 則移除無內容的標題標註
+                tag.extract()
+        # 針對單一元件的標題標註
+        elif len(tag.contents) == 1:
+            # 若內容非為純文字, 表示內容為其他標註物件
+            if tag.get_text() == "":
+                # 且該標註為排序第一
+                if tag_order == 0:
+                    # 在最前方插入標題
+                    tag.insert_before(soup.new_tag('h1', 'First'))
+                else:
+                    # 移除 h1, h2 或 h3 標註, 只留下內容
+                    tag.replaceWithChildren()
+            # 針對其餘單一字串內容的標註, 則保持原樣
+        # 針對內容一個以上的標題標註
+        #elif len(tag.contents) &gt; 1:
+        else:
+            # 假如該標註內容長度大於 1
+            # 且該標註為排序第一
+            if tag_order == 0:
+                # 先移除 h1, h2 或 h3 標註, 只留下內容
+                #tag.replaceWithChildren()
+                # 在最前方插入標題
+                tag.insert_before(soup.new_tag('h1', 'First'))
+            else:
+                # 只保留標題內容,  去除 h1, h2 或 h3 標註
+                # 為了與前面的內文區隔, 先在最前面插入 br 標註
+                tag.insert_before(soup.new_tag('br'))
+                # 再移除非排序第一的 h1, h2 或 h3 標註, 只留下內容
+                tag.replaceWithChildren()
+        tag_order = tag_order + 1
+
+    return soup
+
+</t>
 </tnodes>
 </leo_file>

@@ -1,11 +1,11 @@
 <h1>簡介</h1>
-<p><a href="https://github.com/mdecdlab/lab-booking-cdlab">https://github.com/mdecdlab/lab-booking-cdlab</a>&nbsp; 是一個網際程式, 用於管理 Lab 借用流程.</p>
+<p><a href="https://github.com/mdecdlab/lab-booking-cdlab">https://github.com/mdecdlab/lab-booking-cdlab</a>  是一個網際程式, 用於管理 Lab 借用流程.</p>
 <p>Lab-booking 專案希望採用 <a href="http://flask.pocoo.org/">Flask</a> 框架, 建立一個管理實驗室借用的網際系統.</p>
 <p>使用者登入希望採用 Google Gmail 帳號, 透過 <a href="https://oauth.net/2/">Oauth2</a> 規範實現.</p>
 <h4>近端開發</h4>
 <p>各協同人員參與 Python 程式碼編修, 必須各自在 users 目錄中建立一個 .leo 檔案.</p>
 <p>在近端啟動網際程式, 進入倉儲後, 以</p>
-<p style="padding-left: 30px;">python wsgi.py&nbsp;</p>
+<p style="padding-left: 30px;">python wsgi.py </p>
 <p>啟動 booking 系統.</p>
 <p>CMSimfly 內容管理, reveal.js 簡報與 Pelican 網誌系統位於 doc 目錄中.</p>
 <p>進入 doc 目錄後, 啟動 CMSimfly:</p>
@@ -15,36 +15,57 @@
 <p>由於 reveal.js 簡報檔案為 html 格式檔案, 因此若多人協同維護, 免不了必須合併標註檔案, 若能統一由一位組員維護, 則可避免合併問題.</p>
 <h4>Pelican 網誌</h4>
 <p>網誌中的設定檔案為 Python 程式, 而來源檔案為 Markdown 位於 doc/markdown 目錄中, 若多人維護的 Markdown 檔案解決衝突與合併問題後, 在推送前必須重新轉檔.</p>
-<p></p><h2>參考專案</h2><p><a href="https://github.com/OneScreenfulOfPython/booking-system">https://github.com/OneScreenfulOfPython/booking-system</a>&nbsp;</p><p><a href="https://github.com/chuangag/room-booking-app">https://github.com/chuangag/room-booking-app</a>&nbsp;</p><p><a href="http://www.developerdrive.com/2015/06/how-to-build-a-simple-reservation-system/">http://www.developerdrive.com/2015/06/how-to-build-a-simple-reservation-system/</a>&nbsp;</p><p><a href="https://codereview.stackexchange.com/questions/49786/doctor-patient-reservation-scheduling">https://codereview.stackexchange.com/questions/49786/doctor-patient-reservation-scheduling</a>&nbsp;</p><p><a href="https://github.com/hieusydo/Airline-Reservation-System">https://github.com/hieusydo/Airline-Reservation-System</a>&nbsp;</p><p>控制硬體</p><p style="padding-left: 30px;"><a href="http://laris.univ-angers.fr/_resources/IFAC2017/IFAC_Paper_4212.pdf">http://laris.univ-angers.fr/_resources/IFAC2017/IFAC_Paper_4212.pdf</a>&nbsp;&nbsp;(<a href="/downloads/Design and Development of a Remote Lab for Hands-On Education in Mechatronics and Control Engineering.pdf">local pdf</a>)</p><p><img src="/images/uwsgi_flask_sys_archetecture.png.png" alt="" width="800" height="294"></p><h1>Flask</h1>
+<p></p><h2>參考專案</h2>
+<p><a href="https://github.com/OneScreenfulOfPython/booking-system">https://github.com/OneScreenfulOfPython/booking-system</a> </p>
+<p><a href="https://github.com/chuangag/room-booking-app">https://github.com/chuangag/room-booking-app</a> </p>
+<p><a href="http://www.developerdrive.com/2015/06/how-to-build-a-simple-reservation-system/">http://www.developerdrive.com/2015/06/how-to-build-a-simple-reservation-system/</a> </p>
+<p><a href="https://codereview.stackexchange.com/questions/49786/doctor-patient-reservation-scheduling">https://codereview.stackexchange.com/questions/49786/doctor-patient-reservation-scheduling</a> </p>
+<p><a href="https://github.com/hieusydo/Airline-Reservation-System">https://github.com/hieusydo/Airline-Reservation-System</a> </p>
+<p>控制硬體</p>
+<p style="padding-left: 30px;"><a href="http://laris.univ-angers.fr/_resources/IFAC2017/IFAC_Paper_4212.pdf">http://laris.univ-angers.fr/_resources/IFAC2017/IFAC_Paper_4212.pdf</a>  (<a href="/downloads/Design and Development of a Remote Lab for Hands-On Education in Mechatronics and Control Engineering.pdf">local pdf</a>)</p>
+<p><img alt="" height="294" src="/images/uwsgi_flask_sys_archetecture.png.png" width="800"/></p><h1>GCalendar</h1>
+<p>在利用 Python <a href="http://flask.pocoo.org/">Flask</a> 與 Google <a href="https://developers.google.com/calendar/">Calendar API</a> , 在 Google Calendar 上建立 Event 之前, 可以先透過 <a href="https://en.wikipedia.org/wiki/G_Suite">G Suite</a> 的內建功能, 管理機械設計工程系各實驗室預定排程.</p>
+<h4>利用 mde dot tw G Suite  建立實驗室行事曆</h4>
+<p>以電腦輔助設計室為例, 行事曆如下:</p>
+<p><iframe frameborder="0" height="600" scrolling="no" src="https://calendar.google.com/calendar/embed?src=mde.tw_35353639353033393233%40resource.calendar.google.com&amp;ctz=Asia%2FTaipei" style="border: 0;" width="800"></iframe></p>
+<p>當擁有檢視權限的用戶登入 Gmail 帳號後, 可以檢視電腦輔助設計室各時段的使用內容, 而負責實驗室預定使用管理者, 可以在既定上課時段之外, 接受使用者預定, 一旦申請使用流程通過後, 即可將預定使用資料登錄在申請使用的時段中.</p>
+<h4>建立共用場域資源</h4>
+<p><img alt="" height="363" src="/images/Gsuite_resource_def.png" width="800"/></p>
+<p>為各共用場域建立行事曆:</p>
+<p><img alt="" height="334" src="/images/calendar_for_lab_resource.png" width="577"/></p>
+<p>實驗室行事曆的設定與分享:</p>
+<p><img alt="" height="447" src="/images/calendar_settings_sharing.png" width="503"/></p>
+<p>與特定行事曆管理人分享設定權, 各管理人包括實驗室管理老師與協助的助教, 可以在登入設定的 Gmail 帳號後, 擁有檢視各實驗室上課與已登錄借用時段, 並可在空檔時段輸入其他使用預借登記.</p>
+<p><img alt="" height="203" src="/images/share_with_specific_people.png" width="600"/></p><h1>Flask</h1>
 <p><a href="http://flask.pocoo.org/">Flask</a> 是一套以 Python 編寫的網際程式框架.</p>
 <p>複習 Python:</p>
-<p style="padding-left: 30px;"><a href="http://opentechschool.github.io/python-beginners/en/index.html">http://opentechschool.github.io/python-beginners/en/index.html</a>&nbsp;</p>
+<p style="padding-left: 30px;"><a href="http://opentechschool.github.io/python-beginners/en/index.html">http://opentechschool.github.io/python-beginners/en/index.html</a> </p>
 <p>學習 Flask:</p>
-<p style="padding-left: 30px;"><a href="http://flask.pocoo.org/docs/1.0/tutorial/">http://flask.pocoo.org/docs/1.0/tutorial/</a>&nbsp;</p>
-<p style="padding-left: 30px;"><a href="https://www.tutorialspoint.com/flask/">https://www.tutorialspoint.com/flask/</a>&nbsp;</p>
-<p style="padding-left: 30px;"><a href="http://opentechschool.github.io/python-flask/">http://opentechschool.github.io/python-flask/</a>&nbsp;</p><h1>Oauth2</h1>
-<p><a href="http://www.rfcreader.com/#rfc6749">http://www.rfcreader.com/#rfc6749</a>&nbsp;</p>
-<p><a href="http://www.rfcreader.com/#rfc6750">http://www.rfcreader.com/#rfc6750</a>&nbsp;</p>
-<p><a href="http://www.rfcreader.com/#rfc6819">http://www.rfcreader.com/#rfc6819</a>&nbsp;</p>
-<p>中文:&nbsp;</p>
-<p style="padding-left: 30px;"><a href="https://github.com/jeansfish/RFC6749.zh-cn">https://github.com/jeansfish/RFC6749.zh-cn</a>&nbsp;</p>
-<p style="padding-left: 30px;"><a href="https://blog.yorkxin.org/2013/09/30/oauth2-1-introduction.html">https://blog.yorkxin.org/2013/09/30/oauth2-1-introduction.html</a>&nbsp;</p>
-<p style="padding-left: 30px;"><a href="https://blog.yorkxin.org/2013/09/30/oauth2-implementation-differences-among-famous-sites.html">https://blog.yorkxin.org/2013/09/30/oauth2-implementation-differences-among-famous-sites.html</a>&nbsp;</p>
-<p style="padding-left: 30px;"><a href="https://www.slideshare.net/iVonvey/oauth20-49825333">https://www.slideshare.net/iVonvey/oauth20-49825333</a>&nbsp;</p>
+<p style="padding-left: 30px;"><a href="http://flask.pocoo.org/docs/1.0/tutorial/">http://flask.pocoo.org/docs/1.0/tutorial/</a> </p>
+<p style="padding-left: 30px;"><a href="https://www.tutorialspoint.com/flask/">https://www.tutorialspoint.com/flask/</a> </p>
+<p style="padding-left: 30px;"><a href="http://opentechschool.github.io/python-flask/">http://opentechschool.github.io/python-flask/</a> </p><h1>Oauth2</h1>
+<p><a href="http://www.rfcreader.com/#rfc6749">http://www.rfcreader.com/#rfc6749</a> </p>
+<p><a href="http://www.rfcreader.com/#rfc6750">http://www.rfcreader.com/#rfc6750</a> </p>
+<p><a href="http://www.rfcreader.com/#rfc6819">http://www.rfcreader.com/#rfc6819</a> </p>
+<p>中文: </p>
+<p style="padding-left: 30px;"><a href="https://github.com/jeansfish/RFC6749.zh-cn">https://github.com/jeansfish/RFC6749.zh-cn</a> </p>
+<p style="padding-left: 30px;"><a href="https://blog.yorkxin.org/2013/09/30/oauth2-1-introduction.html">https://blog.yorkxin.org/2013/09/30/oauth2-1-introduction.html</a> </p>
+<p style="padding-left: 30px;"><a href="https://blog.yorkxin.org/2013/09/30/oauth2-implementation-differences-among-famous-sites.html">https://blog.yorkxin.org/2013/09/30/oauth2-implementation-differences-among-famous-sites.html</a> </p>
+<p style="padding-left: 30px;"><a href="https://www.slideshare.net/iVonvey/oauth20-49825333">https://www.slideshare.net/iVonvey/oauth20-49825333</a> </p>
 <p>程式庫</p>
-<p style="padding-left: 30px;"><a href="https://github.com/authomatic/authomatic">https://github.com/authomatic/authomatic</a>&nbsp;</p>
+<p style="padding-left: 30px;"><a href="https://github.com/authomatic/authomatic">https://github.com/authomatic/authomatic</a> </p>
 <p>Google:</p>
-<p style="padding-left: 30px;"><a href="https://developers.google.com/identity/protocols/OAuth2">https://developers.google.com/identity/protocols/OAuth2</a>&nbsp;</p>
-<p style="padding-left: 30px;"><a href="https://developers.google.com/api-client-library/python/apis/oauth2/v1">https://developers.google.com/api-client-library/python/apis/oauth2/v1</a>&nbsp;</p>
-<p style="padding-left: 30px;"><a href="https://developers.google.com/api-client-library/python/guide/aaa_oauth">https://developers.google.com/api-client-library/python/guide/aaa_oauth</a>&nbsp;</p><h1>Calendar</h1>
-<p><a href="https://github.com/Kartones/flask-calendar">https://github.com/Kartones/flask-calendar</a>&nbsp;</p>
+<p style="padding-left: 30px;"><a href="https://developers.google.com/identity/protocols/OAuth2">https://developers.google.com/identity/protocols/OAuth2</a> </p>
+<p style="padding-left: 30px;"><a href="https://developers.google.com/api-client-library/python/apis/oauth2/v1">https://developers.google.com/api-client-library/python/apis/oauth2/v1</a> </p>
+<p style="padding-left: 30px;"><a href="https://developers.google.com/api-client-library/python/guide/aaa_oauth">https://developers.google.com/api-client-library/python/guide/aaa_oauth</a> </p><h1>Calendar</h1>
+<p><a href="https://github.com/Kartones/flask-calendar">https://github.com/Kartones/flask-calendar</a> </p>
 <p></p><h1>Database</h1>
 <p>ORM</p>
-<p style="padding-left: 30px;"><a href="https://github.com/coleifer/peewee">https://github.com/coleifer/peewee</a>&nbsp;</p>
+<p style="padding-left: 30px;"><a href="https://github.com/coleifer/peewee">https://github.com/coleifer/peewee</a> </p>
 <p>RDBMS</p>
-<p style="padding-left: 30px;"><a href="https://www.sqlite.org">https://www.sqlite.org</a>&nbsp;</p>
-<p style="padding-left: 30px;"><a href="https://www.mysql.com/">https://www.mysql.com/</a>&nbsp;</p>
-<p style="padding-left: 30px;"><a href="https://www.postgresql.org/">https://www.postgresql.org/</a>&nbsp;</p>
+<p style="padding-left: 30px;"><a href="https://www.sqlite.org">https://www.sqlite.org</a> </p>
+<p style="padding-left: 30px;"><a href="https://www.mysql.com/">https://www.mysql.com/</a> </p>
+<p style="padding-left: 30px;"><a href="https://www.postgresql.org/">https://www.postgresql.org/</a> </p>
 <p>LDAP</p>
-<p style="padding-left: 30px;"><a href="https://directory.apache.org/studio/">https://directory.apache.org/studio/</a>&nbsp;</p>
-<p style="padding-left: 30px;"><a href="https://github.com/python-ldap/python-ldap">https://github.com/python-ldap/python-ldap</a>&nbsp;</p>
+<p style="padding-left: 30px;"><a href="https://directory.apache.org/studio/">https://directory.apache.org/studio/</a> </p>
+<p style="padding-left: 30px;"><a href="https://github.com/python-ldap/python-ldap">https://github.com/python-ldap/python-ldap</a> </p>
