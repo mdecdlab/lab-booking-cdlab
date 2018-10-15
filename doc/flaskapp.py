@@ -20,8 +20,9 @@ import urllib.parse
 import cgi
 import sys
 # for new parse_content function
+#from bs4 import BeautifulSoup
+# 為了使用 bs4.element, 改為 import bs4
 import bs4
-
 
 # get the current directory of the file
 _curdir = os.path.join(os.getcwd(), os.path.dirname(__file__))
@@ -715,7 +716,7 @@ def generate_pages():
         # 目前重複標題出現總數
         count = head[:i].count(v)
         # 針對重複標題者, 附加目前重複標題出現數 +1, 未重複採原標題
-        newhead.append(v + str(count + 1) if totalcount > 1 else v)
+        newhead.append(v + "-" + str(count + 1) if totalcount > 1 else v)
     # 刪除 content 目錄中所有 html 檔案
     filelist = [ f for f in os.listdir(_curdir + "\\content\\") if f.endswith(".html") ]
     for f in filelist:
@@ -1433,6 +1434,11 @@ def _remove_h123_attrs(soup):
                 else:
                     # 移除 h1, h2 或 h3 標註, 只留下內容
                     tag.replaceWithChildren()
+            # 表示單一元件的標題標註, 且標題為單一字串者
+            else:
+                # 判定若其排序第一, 則將 tag.name 為 h2 或 h3 者換為 h1
+                if tag_order == 0:
+                    tag.name = "h1"
             # 針對其餘單一字串內容的標註, 則保持原樣
         # 針對內容一個以上的標題標註
         #elif len(tag.contents) > 1:
@@ -1775,7 +1781,7 @@ def set_admin_css():
     outstring = '''<!doctype html>
 <html><head>
 <meta http-equiv="content-type" content="text/html;charset=utf-8">
-<title>''' + init.Init.html_title + '''</title> \
+<title>計算機程式教材</title> \
 <link rel="stylesheet" type="text/css" href="/static/cmsimply.css">
 ''' + syntaxhighlight()
 
@@ -1826,7 +1832,7 @@ def set_css():
     outstring = '''<!doctype html>
 <html><head>
 <meta http-equiv="content-type" content="text/html;charset=utf-8">
-<title>''' + init.Init.html_title + '''</title> \
+<title>計算機程式教材</title> \
 <link rel="stylesheet" type="text/css" href="/static/cmsimply.css">
 ''' + syntaxhighlight()
 
@@ -1883,7 +1889,7 @@ def set_css2():
     outstring = '''<!doctype html>
 <html><head>
 <meta http-equiv="content-type" content="text/html;charset=utf-8">
-<title>''' + init.Init.html_title + '''</title> \
+<title>計算機程式教材</title> \
 <link rel="stylesheet" type="text/css" href="./../static/cmsimply.css">
 ''' + syntaxhighlight2()
 
@@ -2048,11 +2054,6 @@ def syntaxhighlight():
 <script src="https://scrum-3.github.io/web/brython/brython.js"></script>
 <script src="https://scrum-3.github.io/web/brython/brython_stdlib.js"></script>
 -->
-<style>
-img {
-    border: 3px solid red;
-}
-</style>
 '''
 
 
@@ -2105,11 +2106,6 @@ init_mathjax();
 <script src="https://scrum-3.github.io/web/brython/brython.js"></script>
 <script src="https://scrum-3.github.io/web/brython/brython_stdlib.js"></script>
 -->
-<style>
-img {
-    border: 3px solid red;
-}
-</style>
 '''
 
 
