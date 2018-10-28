@@ -19,6 +19,7 @@
 </v>
 <v t="leo.20180923150443.1"><vh>安裝模組</vh></v>
 <v t="leo.20180923151741.1"><vh>config</vh></v>
+<v t="leo.20181028113409.1"><vh>與 Google Calendar 互動</vh></v>
 <v t="leo.20180923111821.1" a="E"><vh>@path ./../</vh>
 <v t="leo.20180924131955.1" a="E"><vh>@path doc</vh>
 <v t="leo.20180924132006.1"><vh>@edit wsgi.py</vh></v>
@@ -213,5 +214,23 @@ CONFIG = {
 ###############################################</t>
 <t tx="leo.20180924081752.1"></t>
 <t tx="leo.20180924131955.1"></t>
+<t tx="leo.20181028113409.1">https://developers.google.com/api-client-library/python/apis/calendar/v3
+
+https://github.com/googleapis/google-api-python-client
+
+https://google-auth.readthedocs.io/en/latest/ 就是 https://github.com/googleapis/google-auth-library-python
+
+https://oauthlib.readthedocs.io/en/latest/ 則為 https://github.com/oauthlib/oauthlib
+
+pip install --upgrade google-api-python-client
+
+https://lepture.com/en/2018/structure-of-a-flask-project
+https://lepture.com/en/2018/announcement-of-authlib
+https://github.com/lepture/authlib
+https://github.com/authlib/playground
+https://docs.authlib.org/en/latest/
+https://lepture.com/en/2013/create-oauth-server
+
+</t>
 </tnodes>
 </leo_file>
